@@ -13,6 +13,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar' %>
+    <div class="container">
+
+      <p>
+        User is signed in? <%= user_signed_in? %> |
+
+        <% if user_signed_in? %>
+          current user is? <%= current_user.email %>
+        <% end %>
+
+      </p>
+      <%= yield %>
+    </div>
   </body>
 </html>
